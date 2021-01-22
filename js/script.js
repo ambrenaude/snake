@@ -15,7 +15,6 @@ window.onload = function(){
 
     //on execute la fonction init au chargement de la page
     init();
-
     
 //fonction standard pour initialiser des choses
     function init(){
@@ -52,6 +51,10 @@ window.onload = function(){
                 {
                     snakee.ateApple = true;
                     score++;
+                    if(score % 5 == 0){
+                        delay = delay / 2;
+                    }
+                    
                     do
                     {
                     applee.setNewPosition(); //on remplace la position de la pomme                        
@@ -94,6 +97,7 @@ window.onload = function(){
     snakee = new Snake([[6,4],[5,4],[4,4],[3,4],[2,4]], "right");
     applee = new Apple([10,10]);
     score = 0;
+    delay = 100;
     clearTimeout(timeout);
     //on lance la fonction du refresh
     refreshCanvas();
